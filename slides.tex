@@ -1,0 +1,556 @@
+%\documentclass[11pt,handout]{beamer}
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\hypersetup{%
+pdftitle={A brief introduction to Dart},
+pdfauthor={David Stutz},
+pdfkeywords={Dart},
+bookmarksnumbered,
+pdfstartview={FitH},
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black,
+breaklinks=true,
+}
+
+% For colors
+\usepackage{color}
+
+% Define colors used for listings
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% Configuration for listings
+\lstset{%
+numbers=left,
+basicstyle=\small,
+numbers=left,
+numberstyle=\tiny,
+numbersep=5pt,
+tabsize=2,
+flexiblecolumns=true,
+keywordstyle=\color{blue},
+commentstyle=\color{dkgreen}, 
+stringstyle=\color{mauve},
+numberstyle=\tiny\color{gray},
+language=Java,
+breaklines=true,
+breakatwhitespace=true,
+morekeywords={*,num,String,var,library,get,set} ,
+}
+
+\usetheme{Goettingen}
+\usecolortheme{whale}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+\begin{document}
+
+\title{Dart}
+\subtitle{Eine kurze Einführung}
+\author{David Stutz}
+\institute{Lehrstuhl für Datenmanagement und -exploration \\RWTH Aachen}
+\date{Proseminar SS 2012}
+\subject{Dart}
+
+% \AtBeginSection[]
+% {
+%   \begin{frame}
+%     \frametitle{Table of Contents}
+%     \tableofcontents[currentsection]
+%   \end{frame}
+% }
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Überblick}
+\tableofcontents
+\end{frame}
+
+\section{Einführung}
+\begin{frame}
+\frametitle{Einführung}
+
+\begin{figure}[htb]
+	\centering
+ 		\includegraphics[width=0.4\textwidth]{images/dart-logo.png}
+\end{figure}\footnote{Bild: \url{http://www.dartlang.org/}}
+
+\begin{itemize}
+\item Klassen-basierte Programmiersprache für Webanwendungen
+\item Entwickelt von Google
+\pause
+\item Vorgestellt auf der GOTO Konferenz in Aarhus am 12. Oktober 2011
+\pause
+\item Zurzeit: ``technical preview''
+\pause
+\item Diese Präsentation: Dart für clientseitige Programmierung
+\end{itemize}
+\end{frame}
+
+\section{Motivation}
+\begin{frame}
+\frametitle{Motivation}
+\begin{itemize}
+\item ``Building delightful applications on the web today is far too difficult.''\footnote{\url{https://gist.github.com/1208618}} -- Mark S. Miller
+\pause
+\item Komplexe Anwendungen benötigen modularen und strukturierten Code
+\pause
+\item Kaum Möglichkeiten homogene Systeme zu entwickeln
+\pause
+\begin{itemize}
+\item Google Web Toolkit\\\url{https://developers.google.com/web-toolkit/}
+\item Node.js\\\url{http://nodejs.org/}
+\end{itemize}
+\pause
+\item Clientseitig vorallem Schwierigkeiten mit Javascript
+\end{itemize}
+\end{frame}
+
+\section{Werkzeuge}
+\begin{frame}
+\frametitle{Werkzeuge}
+
+Google stellt hilfreiche Werkzeuge zur Entwicklung bereit:
+\begin{itemize}
+\item Dart--zu--Javascript Übersetzer
+\pause
+\item Dart Editor -- auf Eclipse basierter Editor
+\pause
+\item ``Dartium'' -- auf Chromium basierter Browser mit integrierter Dart VM
+\end{itemize}
+\pause
+Downloads unter \url{http://dartlang.org}.
+\end{frame}
+
+\section{Demonstration}
+\begin{frame}
+\frametitle{Demonstration}
+\begin{center}
+\huge{Demonstration}
+\end{center}
+\end{frame}
+
+%\subsection{Main-Methode}
+%\begin{frame}[fragile]
+%\frametitle{Main-Methode}
+%
+%Der Einstiegspunkt in Dart ist die \lstinline|main()| Methode:
+%
+%\begin{lstlisting}
+%void main() {
+%  new Contacts().run();
+%}
+%\end{lstlisting}
+%\pause
+%\begin{lstlisting}
+%class Contacts {
+%  Contacts() {
+%    // Konstruktor der Klasse.
+%  }
+%  void run() {
+%    // Oeffentliche Methode ohne Rueckgabewert.
+%    // Wird spaeter Initialisierung durchfuehren.
+%  }
+%}
+%\end{lstlisting}
+
+%\end{frame}
+
+\section{Dart}
+\subsection{Klassen}
+\begin{frame}[fragile]
+\frametitle{Klassen}
+
+Dart unterstützt:
+\begin{itemize}
+\item Klassen-basierte Objektorientierung
+\pause
+\item Einfache Vererbung
+\pause
+\item Abstrakte Klassen
+\pause
+\item Interfaces
+\end{itemize}
+\pause
+Außerdem:
+\begin{itemize}
+\item Verzicht auf \lstinline|public|/\lstinline|private|
+\item Getter/Setter mittels \lstinline|get|/\lstinline|set| deklarieren
+\item Benannte Konstruktoren
+\end{itemize}
+%\pause
+%\begin{lstlisting}
+%class Model_Contact {
+%  
+%  // Attribute sind automatisch privat auf Grund des '_'-Praefix.
+%  num _id;
+%  String _first_name;
+%  String _last_name;
+%  String _phone;
+%  String _email;
+%  // ...
+%\end{lstlisting}
+\end{frame}
+
+\subsection{Optionale Typen}
+\begin{frame}[fragile]
+\frametitle{Optionale Typen}
+
+Eingebaute Typen:
+\begin{itemize}
+\item Zahlen -- \lstinline|num|
+\item Zeichenketten -- \lstinline|String|
+\item ``Collections'' -- Listen, Assoziative Felder...
+\end{itemize}
+\pause
+Aber:
+\begin{itemize}
+\item Typen nicht verpflichtend
+\item Variablen alternativ mit \lstinline|var| deklarierbar
+%\begin{lstlisting}
+%// Eine Zeichenkette deklarieren:
+%String typedString = 'Wird dieser Variable ein anderer Variablentyp zugewiesen erkennt der "Type Checker" es.';
+%var untypedString = 'Prinzipiell sind all Variablen ungetypt.';
+%\end{lstlisting}
+%\pause
+%\item Der ``Type Checker'' erkennt Typfehler, diese behindern allerdings nicht die Ausführung
+\end{itemize}
+\end{frame}
+
+\subsection{DOM}
+\begin{frame}[fragile]
+\frametitle{DOM -- Document Object Model}
+%Dart stellt eine Art ``Collection Framework'' bereit:
+%\begin{itemize}
+%\item Assoziative Felder (Maps)
+%\pause
+%\item Listen
+%\end{itemize}
+%\pause
+%Jeweils mit verschiedenen Implementierungen.
+%\vskip 1em
+%\pause
+DOM Manipulation -- Zugriff auf HTML:
+\begin{itemize}
+\item Neue DOM Elemente erstellen:
+\begin{itemize}
+\item \lstinline|Element.tag('tag')|
+\item \lstinline|Element.html('<html>...</html>')|
+\end{itemize}
+\pause
+\item Auf Attribute direkt mittels \lstinline|element.attributes| zugreifen
+\pause
+\item Knoten von DOM Elementen mittels \lstinline|element.nodes| ansprechen
+\end{itemize}
+%\pause
+%\begin{lstlisting}
+%class Model {
+%  static List<Model_Contact> contacts; // Wird die Liste der Kontakte sein.
+%  static void add(Model_Contact contact) {
+%    if (Model.contacts == null) {
+%      Model.contacts = []; // Initialisiere Liste
+%    }
+%    Model.contacts.add(contact); // Ein neues Element hinzufuegen.
+%    contact.id = Model.contacts.indexOf(contact); // Index eines Elements herausfinden.
+%  }
+%  // ...
+%\end{lstlisting}
+\end{frame}
+
+%\subsection{DOM}
+%\begin{frame}[fragile]
+%\frametitle{DOM}
+%
+%\begin{lstlisting}
+%Element row = new Element.tag('tr'); // Neues Zeilen-ELement.
+%Element submit = new Element.tag('td'); // Neues Zellen-Element.
+%submit.attributes['colspan'] = '2';
+%submit.innerHTML = '<button type="submit" id="submit">Submit</button>';
+%row.nodes.add(submit); // Zelle zur Zeile hinzufuegen.
+%this.element.nodes.add(row); // Zeile zur Tabelle Hinzufuegen.
+%\end{lstlisting}
+%\pause
+%\begin{itemize}
+%\item Neue DOM Elemente mittels \lstinline|Element.tag('tag')| erstellen
+%\pause
+%\item Auf Attribute direkt mittels \lstinline|attributes| zugreifen
+%\pause
+%\item Knoten von DOM Elementen mittels \lstinline|nodes| ansprechen
+%\end{itemize}
+%\end{frame}
+
+\subsection{Modularität}
+\begin{frame}[fragile]
+\frametitle{Modularität}
+
+Anwendungen lassen sich modular aufbauen:
+\begin{itemize}
+\item Eigene Bibliotheken erstellen:
+\begin{lstlisting}
+// In View.dart eine Bibliothek definieren:
+#library('view');
+\end{lstlisting}
+\pause
+\item Bibliotheken einbinden:
+\begin{lstlisting}
+// Dart's HTML Bibliothek einbinden:
+#import('dart:html');
+// Eigene Bibliothek einbinden:
+#import('View.dart');
+\end{lstlisting}
+\end{itemize}
+
+\end{frame}
+
+\section{Evaluation}
+\begin{frame}
+\frametitle{Evaluation}
+\begin{center}
+\begin{tabular}{ p{0.45\textwidth} || p{0.45\textwidth}}
+Dart & Javascript\\ [0.4em]
+\hline \\ [0.2em]
+Klassen-basiert, Interfaces, Vererbung & Prototypen-basiert, komplizierte Vererbung\\ [0.4em]
+Optionale Typen & erschwerte Typüberprüfung \newline \begin{itemize} \item ``undefined'' \item ``falsify''\end{itemize}\\ [0.4em]
+Bibliotheken & Keine Bibliotheken \newline -- Globaler Namespace\\ [0.4em]
+DOM Manipulation mittels CSS Selektoren & externe Bibliotheken (z.B. JQuery\footnote{\url{http://jquery.com/}})\\ [0.4em]
+\end{tabular}
+\end{center}
+%Dart's Stärken:
+%\begin{itemize}
+%\item Bekannte Syntax
+%\pause
+%\item Klassen-basierte Objektorientierung
+%\pause
+%\item Optionale Typen
+%\pause
+%\item Nicht gezeigte Features wie:
+%\begin{itemize}
+%\item Isolates
+%\end{itemize}
+%\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluation (II)}
+
+%Von Javascript gelernt:
+%\begin{itemize}
+%\item Klassen-basierte Objektorientierung
+%\pause
+%\item Erleichterte Typüberprüfung (optionale Typen)
+%\pause
+%\item Eingebaute Möglichkeiten zum Umgang mit Bibliotheken
+%\pause
+%\item Einfache DOM Manipulation
+%\end{itemize}
+%\pause
+
+Probleme für den clientseitigen Einsatz:
+\begin{itemize}
+\item Übersetzung zu Javascript vor Ausführung
+\pause
+\item Nativer Browser-Support --  ``as of March 2012, Microsoft Internet Explorer, Mozilla Firefox, Opera Software's Opera browser, and Apple Safari do not have plans to implement support for Dart''\footnote{\url{http://en.wikipedia.org/wiki/Dart_(programming_language)}}
+\end{itemize}
+\end{frame}
+
+\section{Quellen}
+\begin{frame}
+\frametitle{Quellen}
+\begin{thebibliography}{10}    
+  \beamertemplatebookbibitems
+  \bibitem{Dartlang}
+    Dartlang.org
+    \newblock {\url{http://dartlang.org}}
+  \bibitem{Wikipedia}
+    Dart (programming language)
+    \newblock {\url{http://en.wikipedia.org/wiki/Dart_(programming_language)}}
+  \bibitem{t3n}
+    Dart: 10 Punkte, in denen es JavaScript übertrifft
+    \newblock {\url{http://t3n.de/news/dart-10-punkte-denen-javascript-358345/}}
+  \beamertemplatearticlebibitems
+  \end{thebibliography}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ende}
+\begin{center}
+\huge{Vielen Dank für die Aufmerksamkeit!}\\
+\vskip 1em
+\LARGE{Fragen?}
+\end{center}
+\end{frame}
+
+\section{Zusatz}
+\subsection{Typ-Überprüfung}
+\begin{frame}[fragile]
+\frametitle{Typ-Überprüfung}
+\begin{figure}[!h]
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{lstlisting}[lang=Javascript,basicstyle=\scriptsize]
+			var nullVal = null;
+			if (!nullVal) {
+			  // 'null' wird als 'false' behandelt...
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{lstlisting}[basicstyle=\scriptsize]
+			var nullVal = null;
+			if (nullVal == null) {
+			  // Dart kennt lediglich das 'wahre' false!
+			}
+		\end{lstlisting}
+	\end{minipage}
+\end{figure}
+\pause
+\begin{figure}[!h]
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{lstlisting}[lang=Javascript,basicstyle=\scriptsize]
+			var emptyString = '';
+			if (!emptyString) {
+			  // leere Zeichenketten werden als 'false' behandelt...
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{lstlisting}[basicstyle=\scriptsize]
+			var emptyString = '';
+			if (emptyString.isEmpty()) {
+			  // ...
+			}
+		\end{lstlisting}
+	\end{minipage}
+\end{figure}
+\pause
+\begin{figure}[!h]
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{lstlisting}[lang=Javascript,basicstyle=\scriptsize]
+			var undefinedVal;
+			if (!undefinedVal) {
+			  // 'undefined' wird auch als 'false' behandelt...
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{lstlisting}[basicstyle=\scriptsize]
+			// Dart kennt kein 'undefined'!
+		\end{lstlisting}
+	\end{minipage}
+\end{figure}
+\end{frame}
+
+\subsection{Optionale Parameter}
+\begin{frame}[fragile]
+\frametitle{Optionale Parameter}
+\begin{figure}[!h]
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{lstlisting}[lang=Javascript,basicstyle=\scriptsize]
+			function foo(x, y, z) {
+			  return z;
+			}
+
+			foo(1); // Wird 'undefined' zurueckgeben...
+		\end{lstlisting}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{lstlisting}[basicstyle=\scriptsize]
+			// Rueckgabewert in der Deklaration anzugeben ist optional:
+			foo(x, y, z) {
+			  return z;
+			}
+
+			foo(1); // NoSuchMethodException!
+
+			// y und z sind optionale Parameter:
+			bar(x, [y, z]) {
+			  return z;
+			}
+
+			bar(1); // Wird 'null' zurueckgeben!
+		\end{lstlisting}
+	\end{minipage}
+\end{figure}
+\end{frame}
+
+\subsection{Klassen}
+\begin{frame}[fragile]
+\frametitle{Klassen}
+\begin{figure}[!h]
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{lstlisting}[lang=Javascript,basicstyle=\scriptsize]
+			// Ein Objekt erstellen:
+			function Car(brand) {
+			  this.brand = brand;
+			}
+
+			// Dem Prototypen eine Methode hinzufuegen:
+			Car.prototype.alertBrand = function() {
+			  alert(this.brand);
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{lstlisting}[basicstyle=\scriptsize]
+			class Car {
+			
+			  // Durch '_'-Praefix automatisch privat:
+			  var _brand;
+			
+			  // Konsturktor wird _brand automatisch zuweisen:
+			  Car(this._brand);
+
+			  alertBrand() {
+			    window.alert(this._brand);
+			  }
+			}
+		\end{lstlisting}
+	\end{minipage}
+\end{figure}
+\end{frame}
+
+%\subsection{Getters und Setters}
+%\begin{frame}[fragile]
+%\frametitle{Getters und Setters}
+%
+%Dart unterstützt extra \lstinline|set| and \lstinline|get| keywords:
+%\begin{lstlisting}
+%// 'get' deklariert einen Getter.
+%String get first_name() => this._first_name;
+%// 'set' deklariert einen Setter.
+%set first_name(String first_name) => this._first_name = first_name;
+%\end{lstlisting}
+%\pause
+%Das Attribut kann nun wie ein öffentliches Attribut behandelt werden:
+%\begin{lstlisting}
+%contact.first_name = 'David';
+%print(contact.first_name);
+%\end{lstlisting}
+%\pause
+%Außerdem:
+%\begin{itemize}
+%\item Abkürzungen für Methodendeklarationen
+%\end{itemize}
+%\end{frame}
+\end{document}

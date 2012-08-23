@@ -1,0 +1,125 @@
+% Documentclass article will allow for adding sections
+\documentclass{article}
+\usepackage{verbatim}
+
+% For including source code in tex
+% See: http://www.theofel.de/archives/2004/10/source_code_in.html
+\usepackage{listings}
+
+% For bibliography
+\usepackage{cite}
+\bibliographystyle{plain}
+
+% For colors
+\usepackage{color}
+
+% Define colors used for listings
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% Configuration for listings
+\lstset{%
+numbers=left,
+frame=single,
+basicstyle=\small,
+numbers=left,
+numberstyle=\tiny,
+numbersep=15pt,tabsize=4,
+flexiblecolumns=true,
+keywordstyle=\color{blue},
+commentstyle=\color{dkgreen}, 
+stringstyle=\color{mauve},
+numberstyle=\tiny\color{gray},
+language=Java,
+breaklines=true,
+breakatwhitespace=true,
+morekeywords={*,num,String,var,library,get,set} ,
+}
+
+% For graphics.
+% Order of languages important!
+\usepackage[ngerman,english]{babel}
+\selectlanguage{english}
+\usepackage{graphicx}
+
+% For including external hyperlinks in tex
+% See: http://en.wikibooks.org/wiki/LaTeX/Hyperlinks
+\usepackage{hyperref}
+
+\hypersetup{%
+pdftitle={A brief introduction to Dart},
+pdfauthor={David Stutz},
+pdfkeywords={Dart},
+bookmarksnumbered,
+pdfstartview={FitH},
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black,
+breaklinks=true,
+}
+
+\begin{document}
+
+\title{Dart -- a brief introduction}
+\author{David Stutz}
+
+% Will automatically create an header depending on \title and \author arguments
+\include{title}
+
+\newpage
+
+% Automatically create an table of contents of all sections, subsections etc.
+\tableofcontents
+
+% List of listings
+\lstlistoflistings
+
+% List of all figures
+\listoffigures
+
+\newpage
+
+% Abstract
+\input{abstract}
+
+\newpage
+
+% Introduction
+\input{introduction}
+
+\newpage
+
+% Motiviation
+\input{motivation}
+
+\newpage
+
+% Main part
+\input{main}
+
+\newpage
+
+% Evaluation
+\input{evaluation}
+
+\newpage
+
+% Related work
+\input{related-work}
+
+\newpage
+
+% Conclusion
+\input{conclusion}
+
+\newpage
+
+% References
+\addcontentsline{toc}{section}{References}
+\bibliography{dart}
+
+
+\end{document}
