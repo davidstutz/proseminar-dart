@@ -4,7 +4,7 @@ Proseminar 2012: Method and Tools
 
 Chair of Data Management and Data Exploration
 
-Prof. Dr. T.Seidl
+Prof. Dr. T. Seidl
 
 Dipl. Ing. Marwan Hassani
 
