@@ -1,13 +1,11 @@
 # Dart - A Brief Introduction
 
-Proseminar 2012: Method and Tools
+This repository contains code and paper corresponding to:
 
-Chair of Data Management and Data Exploration
+D. Stutz. **Dart - A Brief Introduction.** Seminar Report, Methods and Tools, Chair of Data Management and Data Exploration, RWTH Aachen University, 2012.
 
-Prof. Dr. T. Seidl
+Advisor: Dipl. Ing. Marwan Hassani
 
-Dipl. Ing. Marwan Hassani
+## License
 
-RWTH Aachen University
-
-[http://dme.rwth-aachen.de/de/teaching/ss12/methoden-und-werkzeuge](http://dme.rwth-aachen.de/de/teaching/ss12/methoden-und-werkzeuge)
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0); to view a copy of this license, visit [https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/).
